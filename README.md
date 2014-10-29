@@ -18,4 +18,4 @@ train.me
 [Web Demo](http://train_me-c9-paveltimofeev.c9.io/frontend/webapp/#/)
 [Mobile Demo](http://train_me-c9-paveltimofeev.c9.io/frontend/webapp/Preview.htm)
 
-![Mobile Demo screeshot](http://github.com/paveltimofeev/train.me/blob/master/screenshot.png)
+![Mobile Demo screeshot](http://raw.githubusercontent.com/paveltimofeev/train.me/master/screenshot.png)

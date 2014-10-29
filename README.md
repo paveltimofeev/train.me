@@ -14,6 +14,12 @@ train.me
 - Storage: Elasticsearch
 
 
+####Hard points
+- Идентичная работа на мобильных устройствах и в браузере
+- Автоматическая регистрация, авторизация и аутентификация пользователя без ввода логина/пароля (run-and-use)
+- Возможность шаринга аккаунта между PC <-> Mobile(s)
+
+
 ####Demo:
 - [Web Demo](http://train_me-c9-paveltimofeev.c9.io/frontend/webapp/#/)
 - [Mobile Demo](http://train_me-c9-paveltimofeev.c9.io/frontend/webapp/Preview.htm)

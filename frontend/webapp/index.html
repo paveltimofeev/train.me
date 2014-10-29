@@ -31,20 +31,20 @@
 
 					<!-- Logo -->
 						<div id="logo">
-							<h1><a href="index.html">Squats</a></h1> <!-- {{ exiciseName }} -->
-							<span>do 200 squats in month {{ exiciseTarget }}</span>		 <!-- {{ exiciseTarget }} -->
+							<h1><a href="index.html">{{ exiciseName }}</a></h1> <!-- {{ exiciseName }} -->
+							<span>{{ exiciseTarget }}</span>		 <!-- {{ exiciseTarget }} -->
 						</div>
 
 					<!-- Nav -->
 						<nav id="nav">
 							<ul>
 								<li><a href="left-sidebar.html">What is goin on?</a></li>
-								<li class="current"><a href="index.html">Welcome</a></li>
+								<li class="current"><a href="index.html">Train now!</a></li>
 								<li>
 									<a href="">Exicises</a>
 									<ul>
 										<li><a href="#">200 Squats</a></li>
-										<li><a href="#">Abdominal exercises</a></li>
+										<li><a href="#">Abdominal exercises [REST 20h]</a></li>
 										<li>
 											<a href="">Workouts...</a>
 											<ul>
@@ -67,13 +67,13 @@
 				<div id="banner" class="box container">
 					<div class="row">
 						<div class="7u">
-							<h2>Lets do 30 squats</h2> 										<!-- {{ todayTask }} -->
-							<p>Yes, I know, it sounds terrible, but I believe you can!</p>	<!-- {{ todayMotivation }} -->
+							<h2>{{ todayTask }}</h2> 										<!-- {{ todayTask }} -->
+							<p>{{ todayMotivation }}</p>	<!-- {{ todayMotivation }} -->
 						</div>
 						<div class="5u">
 							<ul>
-								<li><a href="#" class="button big icon fa-arrow-circle-right">Ok, I've done it!</a></li>	<!-- ng-Click="Done()" -->
-								<li><a href="#" class="button alt big icon fa-question-circle">Oh no, I can't...</a></li>	<!-- ng-Click="Fault()" -->
+								<li><a href="#" class="button big icon fa-arrow-circle-right" ng-click="Done()" >Ok, I've done it!</a></li>	<!-- ng-Click="Done()" -->
+								<li><a href="#" class="button alt big icon fa-question-circle" ng-Click="Fault()">Oh no, I can't...</a></li>	<!-- ng-Click="Fault()" -->
 							</ul>
 						</div>
 					</div>
@@ -85,7 +85,7 @@
 					<div class="row">
 						<div class="3u">
 								<section class="widget links">
-									<h3>day 1, left 29</h3> <!-- {{ todayProgress }} -->
+									<h3>{{ todayProgress }}</h3> <!-- {{ todayProgress }} -->
 								</section>
 						</div>
 					</div>

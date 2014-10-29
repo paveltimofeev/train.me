@@ -10,8 +10,8 @@ train.me
 
 ####Arch:
 - Frontend: Angularjs / HTML5 resp
-- Backend: Node.js Expressjs
-- Starage: Elasticsearch
+- Backend: Node.js + Expressjs
+- Storage: Elasticsearch
 
 
 ####Demo:

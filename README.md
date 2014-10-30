@@ -39,7 +39,10 @@ Try to use Angular/Node/Elasticsearch
   - [ ] REST api client Service
 - [ ] REST Api
   - [x] Define API
+  - [ ] Implement public API
+  - [ ] Add swagger ui
+  - [ ] Storing/Retrieving data to/from backend DB
   - [ ] ...
 - [ ] Database 
   - [ ] Define data structure
-  - [ ] ...  
+  - [ ] ...

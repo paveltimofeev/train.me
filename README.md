@@ -31,18 +31,19 @@ Try to use Angular/Node/Elasticsearch
 ![Mobile Demo screeshot](https://raw.githubusercontent.com/paveltimofeev/train.me/master/screenshot.png)
 
 ####Tasks & progress
-- [ ] Angularjs
-  - [x] Make up HTML5 template
-  - [x] Define views
-  - [x] Controllers
-  - [x] Bind data 
-  - [ ] REST api client Service
-- [ ] REST Api
-  - [x] Define API
-  - [ ] Implement public API
-  - [ ] Add swagger ui
-  - [ ] Storing/Retrieving data to/from backend DB
-  - [ ] ...
-- [ ] Database 
-  - [ ] Define data structure
-  - [ ] ...
+- [ ] MVP
+  - [ ] Angularjs
+    - [x] Make up HTML5 template
+    - [x] Define views
+    - [x] Controllers
+    - [x] Bind data 
+    - [ ] REST api client Service
+  - [ ] REST Api
+    - [x] Define API
+    - [ ] Implement public API
+    - [ ] Add swagger ui
+    - [ ] Storing/Retrieving data to/from backend DB
+    - [ ] ...
+  - [ ] Database 
+    - [ ] Define data structure
+    - [ ] ...

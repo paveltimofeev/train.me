@@ -29,3 +29,13 @@ Try to use Angular/Node/Elasticsearch
 - [Backend REST Api description](http://github.com/paveltimofeev/train.me/wiki/Backend-REST-API-Description)
 
 ![Mobile Demo screeshot](https://raw.githubusercontent.com/paveltimofeev/train.me/master/screenshot.png)
+
+####Tasks
+- [ ] Angularjs
+  - [ ] Define views
+  - [ ] ...
+- [ ] REST Api
+  - [x] Define API
+  - [ ] ...
+- [ ] Database 
+  - [ ] ...  

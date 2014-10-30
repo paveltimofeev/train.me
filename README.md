@@ -23,14 +23,14 @@ Try to use Angular/Node/Elasticsearch
 - Возможность шаринга аккаунта между PC <-> Mobile(s)
 
 
-####Demo
+####Demo & links
 - [Web Demo](http://train_me-c9-paveltimofeev.c9.io/frontend/webapp/#/)
 - [Mobile Demo](http://train_me-c9-paveltimofeev.c9.io/frontend/webapp/Preview.htm)
 - [Backend REST Api description](http://github.com/paveltimofeev/train.me/wiki/Backend-REST-API-Description)
 
 ![Mobile Demo screeshot](https://raw.githubusercontent.com/paveltimofeev/train.me/master/screenshot.png)
 
-####Tasks
+####Tasks & progress
 - [ ] Angularjs
   - [x] Make up HTML5 template
   - [x] Define views

@@ -1,0 +1,6 @@
+{
+    "backend": 
+    {
+        "restServiceUrl": "https://trainme-restful-service.com:3232"
+    }
+}

@@ -32,10 +32,14 @@ Try to use Angular/Node/Elasticsearch
 
 ####Tasks
 - [ ] Angularjs
+  - [x] Make up HTML5 template
   - [ ] Define views
-  - [ ] ...
+  - [ ] Controllers
+  - [ ] Bind data 
+  - [ ] REST api client Service
 - [ ] REST Api
   - [x] Define API
   - [ ] ...
 - [ ] Database 
+  - [ ] Define data structure
   - [ ] ...  

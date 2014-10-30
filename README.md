@@ -13,7 +13,7 @@ Try to use Angular/Node/Elasticsearch
 
 ####Arch
 - Frontend: Angularjs / HTML5 resp
-- Backend: Node.js + Expressjs
+- Backend: Node.js + Expressjs + swagger
 - Storage: Elasticsearch
 
 

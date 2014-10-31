@@ -1,0 +1,12 @@
+<!-- Nav 	-->	
+	<nav id="nav" ng-controller="menuCtrl">
+		<ul>
+			<li ng-repeat="item in menu"><a ng-href="{{ item.link }}">{{ item.name }}</a>
+				<ul ng-if="item.children != null">
+					<li ng-repeat="child in item.children"><a ng-href="{{ child.link }}">{{ child.name }}</a>
+								<ul ng-if="child.children != null"><li ng-repeat="subchild in child.children"><a ng-href="{{ subchild.link }}">{{ subchild.name }}</a></li></ul>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</nav>

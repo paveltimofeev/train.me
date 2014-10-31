@@ -23,11 +23,10 @@
 		</noscript>
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
 	</head>
-	<body class="homepage" ng-app="trainme" ng-controller="exiciseViewCtrl" >
+	<body class="homepage" ng-app="trainme" ng-controller="exiciseDescriptionCtrl" >
 
-						<div id="header-wrapper">
+		<div id="header-wrapper">
 				<header id="header" class="container">
-
 
 
 					<!-- Logo -->
@@ -35,6 +34,7 @@
 							<h1><a href="index.html">{{ exiciseName }}</a></h1> <!-- {{ exiciseName }} -->
 							<span>{{ exiciseTarget }}</span>		 <!-- {{ exiciseTarget }} -->
 						</div>
+
 
 					<!-- Nav 	-->	
 						<nav id="nav" ng-controller="menuCtrl">
@@ -48,38 +48,98 @@
 								</li>
 							</ul>
 						</nav>
-
+						
 				</header>
-			</div>
+		</div>
 
-			<div id="banner-wrapper">
+		<div id="banner-wrapper">
 				<div id="banner" class="box container">
 					<div class="row">
 						<div class="7u">
-							<h2>{{ todayTask }}</h2> 										<!-- {{ todayTask }} -->
-							<p>{{ todayMotivation }}</p>	<!-- {{ todayMotivation }} -->
+							<p>{{ pitch }}</p>	<!-- {{ pitch }} -->
 						</div>
 						<div class="5u">
 							<ul>
-								<li><a href="#" class="button big icon fa-arrow-circle-right" ng-Click="Done()">Ok, I've done it!</a></li>	<!-- ng-Click="Done()" -->
-								<li><a href="#" class="button alt big icon fa-question-circle" ng-Click="Fault()">Oh no, I can't...</a></li>	<!-- ng-Click="Fault()" -->
+								<li><a href="#" class="button big icon fa-arrow-circle-right" ng-Click="SubscribeExercise()">Ok, I'm starting now!</a></li>	<!-- ng-Click="Done()" -->
 							</ul>
 						</div>
 					</div>
 				</div>
 			</div>
 		
+		
+		
+		<div id="features-wrapper">
+				<div class="container">
+					<div class="row">
+						<div class="4u">
+						
+							<!-- Box -->
+								<section class="box feature">
+									<a href="#" class="image featured"><img ng-src="{{imageUrl}}" alt=""></a> <!-- {{ imageUrl }} -->
+									<div class="inner">
+										<header>
+											<h2>{{ exiciseName }}</h2> <!-- {{ exiciseName }} -->
+											<p>start with 30 squats and make 200</p>
+										</header>
+										<p>{{ description }}</p> <!-- {{ description }} -->
+									</div>
+								</section>
+
+						</div>
+						<div class="4u">
+						
+							<!-- Box -->
+								<section class="box feature">
+									<a href="#" class="image featured"><img src="images/fit.png" alt=""></a>
+									<div class="inner">
+										<header>
+											<h2>Suit for you?</h2>
+											<p>Read some recomendations bellow</p>
+										</header>
+										<p>Phasellus quam turpis, feugiat sit amet in, hendrerit in lectus. Praesent sed semper amet bibendum tristique fringilla.</p>
+									</div>
+								</section>
+
+						</div>
+						<div class="4u">
+						
+							<!-- Box -->
+								<section class="box feature last">
+									<a href="#" class="image featured"><img src="images/squat2.jpg" alt=""></a>
+									<div class="inner">
+										<header>
+											<h2>What you can expect</h2>
+											<p>You will get daily instructions</p>
+										</header>
+										<p>Phasellus quam turpis, feugiat sit amet in, hendrerit in lectus. Praesent sed semper amet bibendum tristique fringilla.</p>
+									</div>
+								</section>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		
+		
+		
+		
+		
+		
+		
+		<!--
 			<div id="footer-wrapper">
 				<footer id="footer" class="container">
 					<div class="row">
 						<div class="3u">
 								<section class="widget links">
-									<h3>{{ todayProgress }}</h3> <!-- {{ todayProgress }} -->
+									<h3>{{ pitch }}</h3>
 								</section>
 						</div>
 					</div>
 				</footer>
 			</div>
+		-->
 		
   <script src="../app/bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
   <script src="../app/bower_components/angular/angular.js"></script>

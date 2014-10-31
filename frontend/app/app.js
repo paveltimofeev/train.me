@@ -11,12 +11,14 @@ config(['$routeProvider', function($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/view1'});
 }]);
 
-
+/// Define a module
 angular.module('trainme', ['ngRoute']);
 
+/// Configure a module
 angular.module('trainme').config(['$routeProvider', function($routeProvider){
 	
-	$routeProvider.when('/'		  , { templateUrl:'templates/exerciseView.html', controller: 'exiciseViewCtrl'})
+	$routeProvider.when('/'		  , { templateUrl:'/today.html', controller: 'exiciseViewCtrl'})
+								.when('/today' , { templateUrl:'/today.html', controller: 'exiciseViewCtrl' })
 								.when('/edit' , { templateUrl:'templates/exerciseEdit.html', controller: 'exiciseViewCtrl' })
 								.when('/done'	, { templateUrl:'templates/exerciseDone.html', controller: 'exiciseDoneCtrl'})
 								.when('/fault', { templateUrl:'templates/exerciseFault.html', controller: 'exiciseFaultCtrl'})
@@ -26,6 +28,24 @@ angular.module('trainme').config(['$routeProvider', function($routeProvider){
 
 
 /// Controllers (will be moved to separate files)
+angular.module('trainme').controller('exiciseDescriptionCtrl', ['$scope', '$location', 'configService', 'restClientService', function exiciseDescriptionCtrl($scope, $location, configService, restClientService){
+	
+	var exicise = restClientService.GetExerciseDescription('squats');
+	
+	$scope.id							= exicise.id;
+	$scope.exiciseName 		= exicise.name;
+	$scope.exiciseTarget 	= exicise.target;
+	$scope.description		= exicise.description;
+	$scope.imageUrl				=  exicise.imageUrl;
+	$scope.pitch 					= exicise.pitch;
+
+	$scope.SubscribeExercise = function SubscribeExercise(){
+		restClientService.SubscribeExercise($scope.id, configService.Config.user.uid);
+		$location.redirectTo('today.html');
+	};
+	
+}]);
+
 angular.module('trainme').controller('exiciseViewCtrl', ['$scope', '$location', 'configService', 'restClientService', function exiciseViewCtrl($scope, $location, configService, restClientService){
 	
 	var response = restClientService.GetTodayExercisesForUser('squats', configService.Config.user.uid);
@@ -73,26 +93,15 @@ angular.module('trainme').controller('exiciseFaultCtrl', ['$scope', 'configServi
 		
 }]);
 							 
-angular.module('trainme').controller('menuCtrl', ['$scope', function menuCtrl($scope){
+angular.module('trainme').controller('menuCtrl', ['$scope', 'configService', 'restClientService', function menuCtrl($scope, configService, restClientService){
 
-	$scope.menu = 
-		[
-			{ name:'200 squats', 										 link: '/exercise/1' },
-			{ name:'Abdominal exercises [REST 20h]', link: '/exercise/2'},
-			{ name:'Workout...', 										 
-				link: null, 
-				children:	[
-										{ name:'Bench press', link: '/exercise/3' },
-								 		{ name:'Deadlift', 		link: '/exercise/4' },
-										{ name:'Squat', 			link: '/exercise/5' }
-									]
-			},
-			{ name:'200 squats', link: '/exercise/1'},
-		];
+	$scope.menu = restClientService.GetMenu(configService.Config.user.uid);
+	
 }]);
 
 
 /// Services (will be moved to separate files)
+/// User identity service
 angular.module('trainme').service('uidService', function uidService($http){
 
 	var uid = null;
@@ -112,7 +121,8 @@ angular.module('trainme').service('uidService', function uidService($http){
 
 });
 
-angular.module('trainme').service('configService', ['uidService', function configService(uidService){
+/// Config's service
+angular.module('trainme').service('configService', ['$http', 'uidService', function configService($http, uidService){
 	
 	var config = {
 									user: {
@@ -123,11 +133,17 @@ angular.module('trainme').service('configService', ['uidService', function confi
 														restServiceUrl: ''
 													}
 								};
+								
+	$http.get('config.json')
+				.success(function(response){ 
+						config.backend.restServiceUrl = response.data.backend.restServiceUrl; ///? check if it work or not
+					});
 	
 	this.Config = config;
 	
 }]);
 
+/// Backend's service
 angular.module('trainme').service('restClientService', ['$http', 'configService', function restClientService($http, configService){
 	
 		var restUrl = configService.Config.backend.restServiceUrl;
@@ -138,8 +154,9 @@ angular.module('trainme').service('restClientService', ['$http', 'configService'
 						   id: exercise,
 						   name: 'Squats',
 						   target: 'To make 200 squats in a row',
-						   description: 'blah-blah-blah', 
-						   imageUrl:  'http://squats-description-image.svg'
+						   description: 'One of the most time-efficient ways to burn more calories! Strong legs are crucial for staying mobile as you get older, and squats are phenomenal for increasing leg strength.', 
+						   imageUrl:  'images/squats.jpg',
+						   pitch: 'Only 1 exercise a day during 30 days'
 						};
 		};
 		
@@ -205,5 +222,31 @@ angular.module('trainme').service('restClientService', ['$http', 'configService'
 							   nextExerciseDelay: '1440'
 							};
 		};
+		
+		this.GetMenu = function GetMenu(user)
+		{
+			return [
+			{ name:'What is goin on?', 		link: '/what', children: null },
+			{ name:'Today tasks', 				link: '/', children: null },
+			{ name:'Exicises', 										
+				link: '', 
+				children: 
+				[
+					{ name:'200 squats', 										 link: 'exiciseDescription.html', children: null },
+					{ name:'Abdominal exercises [REST 20h]', link: '/exercise/2', children: null},
+					{ name:'Workout...', 										 
+						link: '', 
+						children:	[
+												{ name:'Bench press', link: '/exercise/3', children: null },
+										 		{ name:'Deadlift', 		link: '/exercise/4', children: null },
+												{ name:'Squat', 			link: '/exercise/5', children: null }
+											]
+					},
+					{ name:'200 squats', link: '/exercise/1', children: null},
+				]},
+			{ name:'Feedback', 			 link: '/feedback', children: null }
+		];
+		
+		}
 	
 }]);

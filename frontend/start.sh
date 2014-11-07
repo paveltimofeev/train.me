@@ -1,1 +1,2 @@
-npm start >> start.bat.log
+#! /bin/bash
+npm start #>> start.sh.log

@@ -10,7 +10,7 @@ Fields:
 	- [x] imageUrl 			(exiciseDescription)
 	- [x] pitch 			(exiciseDescription)
 	- [ ] title 			(Done)
-	- [ ] motivationMessage (Done)
+	- [x] motivationMessage (Done)
 	- [x] nextExerciseDelay (Done)
 
 
@@ -45,6 +45,8 @@ Fields:
 			],
 			restDays: 1
 		}
-	]
+	],
+	
+	_isOnline: false
 }
 ```

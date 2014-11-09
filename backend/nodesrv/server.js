@@ -23,49 +23,42 @@ app.param('user', function (req, res, next, user) {
 });
 
 
-app.get('api/exercise/:id', function(req, res){
+app.get('/api/exercise/:id', function(req, res){
 
 	
 	console.log('api/exercise/:id');
-	res.send('hello world');
+	res.send('exercise ' + req.param('id', '0'));
 	
 });
 
 
-app.get('api/exercise/:id/:user', function(req, res){
+app.get('/api/exercise/:id/:user', function(req, res){
 
 	console.log('api/exercise/:id/:user');
-	res.send('hello world');
+	res.send( + req.param('id', '') + ' exercise, user ' + req.param('user', ''));
 	
 });
 
-app.post('api/exercise/:id/subscribe', function(req, res){
+app.post('/api/exercise/:id/subscribe', function(req, res){
  
 	console.log('api/exercise/:id/subscribe');
-	res.send('hello world');
+	res.send('subscribe ' + req.param('id', '0'));
 	
 });
 
-app.post('api/exercise/done', function(req, res){
+app.post('/api/exercise/done', function(req, res){
  
 	console.log('api/exercise/done');
-	res.send('hello world');
+	res.send('done');
 	
 });
 
-app.post('api/exercise/fault', function(req, res){
+app.post('/api/exercise/fault', function(req, res){
  
 	console.log('api/exercise/fault');
-	res.send('hello world');
+	res.send('fault');
 	
 });
-
-
-
-
-
-
-
 
 
 console.log('Server running at http://localhost:3000/');

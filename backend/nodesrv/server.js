@@ -48,8 +48,21 @@ app.post('/api/exercise/:id/subscribe', function(req, res){
 
 app.post('/api/exercise/done', function(req, res){
  
+	 
+	var result =	{
+		   status: 'ok',
+		   exiciseName: 'Squats',
+		   exiciseTarget: 'To make 200 squats in a row',
+		   title: 'Congratilations!',
+		   motivationMessage: ['Now you should rest. Came back tomorrow and I will say you what to do', 'Winners train, losers complain! See you tomorrow'][Math.floor(Math.random()*2)],
+		   todayProgress: 'day 3 from 30',
+		   nextExerciseDelay: '1440'
+		};
+ 
 	console.log('api/exercise/done');
-	res.send('done');
+	
+	console.log(result);
+	res.send(result);
 	
 });
 

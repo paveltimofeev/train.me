@@ -1,0 +1,34 @@
+
+
+
+
+<h1>exiciseViewCtrl</h1>
+<br/> exiciseName 		  : {{ exiciseName 		 }}
+<br/> exiciseTarget 	  : {{ exiciseTarget 	 }}
+<br/> todayTask 		  : {{ todayTask 		 }}
+<br/> todayMotivation 	  : {{ todayMotivation 	 }}
+<br/> todayProgress 	  : {{ todayProgress 	 }}
+
+<h1>exiciseDescriptionCtrl</h1>
+<br/> id			   : {{ id				}}
+<br/> exiciseName 	   : {{ exiciseName 	}}
+<br/> exiciseTarget    : {{ exiciseTarget	}}
+<br/> description	   : {{ description		}}
+<br/> imageUrl		   : {{ imageUrl		}}
+<br/> pitch 		   : {{ pitch 			}}
+
+<h1>exiciseDoneCtrl</h1>
+<br/>exiciseName 		: {{ exiciseName 		}}
+<br/>exiciseTarget 		: {{ exiciseTarget 	    }}
+<br/>title 				: {{ title 			    }}
+<br/>motivationMessage	: {{ motivationMessage  }}
+<br/>todayProgress 		: {{ todayProgress 	    }}
+<br/>nextExerciseDelay	: {{ nextExerciseDelay  }}
+
+
+
+
+
+<div ng-repeat="ex in todayExercises">
+	<p>{{ ex.exiciseName }} <a ng-click="StartExercise($index)">start</a></p>
+</div>

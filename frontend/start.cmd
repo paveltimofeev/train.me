@@ -1,1 +1,0 @@
-npm start >> start.bat.log

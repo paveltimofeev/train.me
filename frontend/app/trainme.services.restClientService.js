@@ -3,6 +3,7 @@ angular.module('trainme').service('restClientService', ['$http', 'configService'
 	
 		var restUrl = configService.Config.backend.restServiceUrl;
 		
+		// REST GET: /api/exercise/:id
 		this.GetExerciseDescription = function GetExerciseDescription(exercise)
 		{
 			return { 
@@ -15,6 +16,7 @@ angular.module('trainme').service('restClientService', ['$http', 'configService'
 						};
 		};
 		
+		// REST GET: /api/today/:user
 		this.GetTodayExercisesForUser = function GetTodayExercisesForUser(user)
 		{
 			var response = [
@@ -43,6 +45,7 @@ angular.module('trainme').service('restClientService', ['$http', 'configService'
 			return response;
 		};
 	
+		// REST GET: /api/exercise/:id/:user
 		this.GetExerciseForUser = function GetExerciseForUser(exercise, user)
 		{
 			var responseSquat = { 
@@ -73,6 +76,7 @@ angular.module('trainme').service('restClientService', ['$http', 'configService'
 			return exercise == 'squats' ? responseSquat : responseBench;
 		};
 		
+		// REST POST: /api/exercise/subscribe/:id/:user
 		this.SubscribeExercise = function SubscribeExercise(exercise, user)
 		{
 			return 	{
@@ -80,6 +84,7 @@ angular.module('trainme').service('restClientService', ['$http', 'configService'
 							};
 		};
 		
+		// REST POST: /api/exercise/done
 		this.ExercisesDone = function ExercisesDone(exercise, user)
 		{
 			return 	{
@@ -93,6 +98,7 @@ angular.module('trainme').service('restClientService', ['$http', 'configService'
 							};
 		};
 		
+		// REST POST: /api/exercise/fault
 		this.ExercisesFault = function ExercisesFault(exercise, user)
 		{
 			return 	{
@@ -106,6 +112,7 @@ angular.module('trainme').service('restClientService', ['$http', 'configService'
 							};
 		};
 		
+		// REST GET: /api/menu/
 		this.GetMenu = function GetMenu(user)
 		{
 			return [

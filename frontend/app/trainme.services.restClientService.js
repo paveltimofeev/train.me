@@ -1,87 +1,53 @@
 /// Backend's service
-angular.module('trainme').service('restClientService', ['$http', 'configService', function restClientService($http, configService){
+angular.module('trainme').service('restClientService', ['$http', '$location', 'configService', function restClientService($http, $location, configService){
 	
 		var restUrl = configService.Config.backend.restServiceUrl;
 		
+		
 		// REST GET: /api/exercise/:id
-		this.GetExerciseDescription = function GetExerciseDescription(exercise)
+		this.GetExerciseDescription = function GetExerciseDescription(exerciseId)
 		{
-			return { 
-						   id: exercise,
-						   name: 'Squats',
-						   target: 'To make 200 squats in a row',
-						   description: 'One of the most time-efficient ways to burn more calories! Strong legs are crucial for staying mobile as you get older, and squats are phenomenal for increasing leg strength.', 
-						   imageUrl:  'images/squats.jpg',
-						   pitch: 'Only 1 exercise a day during 30 days'
-						};
+			$http.jsonp(restUrl+'/api/exercise/'+exerciseId).
+				  success(function(data, status, headers, config) {
+				    // this callback will be called asynchronously
+				    // when the response is available
+				    return data;
+				  }).
+				  error(function(data, status, headers, config) {
+				    // called asynchronously if an error occurs
+				    // or server returns response with an error status.
+				    $location.path('#/error/'+status);
+				  });
 		};
 		
 		// REST GET: /api/today/:user
 		this.GetTodayExercisesForUser = function GetTodayExercisesForUser(user)
 		{
-			var response = [
-								{
-									
-									exiciseId: '1',
-									exiciseName: 'Squats',
-									exiciseTarget: '"To do 200 squats"',
-									todayTask: 'Now you should make 50 squats',
-									todayMotivation: ['I think it is enought for start. Do it now!','Yes, I know, it sounds terrible, but I believe you can! Do it now!'][Math.floor(Math.random()*2)],
-									todayProgress: 'day 3 from 30',
-
-								},
-								{ 
-									
-									exiciseId: '2',
-									exiciseName: 'Bench press',
-									exiciseTarget: 'press 100 kg once',
-									todayTask: 'press 70 kg 5 times',
-									todayMotivation: ['I think it is enought for start. Do it now!','Yes, I know, it sounds terrible, but I believe you can! Do it now!'][Math.floor(Math.random()*2)],
-									todayProgress: 'week #3'
-								}
-							];
-
-			
-			return response;
+			$http.jsonp(restUrl+'/api/today/'+user).
+				  success(function(data, status, headers, config) {
+				    return data;
+				  });
 		};
 	
 		// REST GET: /api/exercise/:id/:user
-		this.GetExerciseForUser = function GetExerciseForUser(exercise, user)
+		this.GetExerciseForUser = function GetExerciseForUser(exerciseId, user)
 		{
-			var responseSquat = { 
-														exicise: 
-															     { 
-																			exiciseId: '1',
-																			exiciseName: 'Squats',
-																			exiciseTarget: '"To do 200 squats"',
-																			todayTask: 'Now you should make 50 squats',
-																			todayMotivation: ['I think it is enought for start. Do it now!','Yes, I know, it sounds terrible, but I believe you can! Do it now!'][Math.floor(Math.random()*2)],
-																			todayProgress: 'day 3 from 30',
-															     }
-													};
-				
-			var responseBench = { 
-														exicise: 
-															     { 
-																					exiciseId: '2',
-																					exiciseName: 'Bench press',
-																					exiciseTarget: 'press 100 kg once',
-																					todayTask: 'press 70 kg 5 times',
-																					todayMotivation: ['I think it is enought for start. Do it now!','Yes, I know, it sounds terrible, but I believe you can! Do it now!'][Math.floor(Math.random()*2)],
-																					todayProgress: 'week #3'
-																	     }
-													};
-			
-			
-			return exercise == 'squats' ? responseSquat : responseBench;
+			$http.jsonp(restUrl+'/api/exercise/' + exerciseId + '/' + user).
+				  success(function(data, status, headers, config) {
+				    return data;
+				  });
 		};
 		
-		// REST POST: /api/exercise/subscribe/:id/:user
-		this.SubscribeExercise = function SubscribeExercise(exercise, user)
+		// ? REST POST: /api/exercise/subscribe/:id/:user
+		this.SubscribeExercise = function SubscribeExercise(exerciseId, user)
 		{
-			return 	{
-							   status: 'ok'
-							};
+			$http.post(restUrl+'/api/exercise/subscribe/', { id:exerciseId, user:user } ).
+				  success(function(data, status, headers, config) {
+				    return data;
+				  }).
+				  error(function(data, status, headers, config) {
+				    $location.path('#/error/'+status);
+				  });
 		};
 		
 		// REST POST: /api/exercise/done
@@ -115,27 +81,10 @@ angular.module('trainme').service('restClientService', ['$http', 'configService'
 		// REST GET: /api/menu/
 		this.GetMenu = function GetMenu(user)
 		{
-			return [
-			{ name:'What is goin on?', 		link: '/what', children: null },
-			{ name:'Today tasks', 				link: '/', children: null },
-			{ name:'Exicises', 										
-				link: '', 
-				children: 
-				[
-					{ name:'200 squats', 										 link: 'exiciseDescription.html', children: null },
-					{ name:'Abdominal exercises [REST 20h]', link: '/exercise/2', children: null},
-					{ name:'Workout...', 										 
-						link: '', 
-						children:	[
-												{ name:'Bench press', link: '/exercise/3', children: null },
-										 		{ name:'Deadlift', 		link: '/exercise/4', children: null },
-												{ name:'Squat', 			link: '/exercise/5', children: null }
-											]
-					},
-					{ name:'200 squats', link: '/exercise/1', children: null},
-				]},
-			{ name:'Feedback', 			 link: '/feedback', children: null }
-		];
+			$http.jsonp(restUrl+'/api/menu/').
+				  success(function(data, status, headers, config) {
+				    return data;
+				  });
 		
 		}
 	

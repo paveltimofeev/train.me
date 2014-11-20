@@ -5,13 +5,13 @@ angular.module('trainme').service('restClientService', ['$http', '$location', 'c
 		
 		
 		// REST GET: /api/exercise/:id
-		this.GetExerciseDescription = function GetExerciseDescription(exerciseId)
+		this.GetExerciseDescription = function GetExerciseDescription(exerciseId, callback)
 		{
 			$http.jsonp(restUrl+'/api/exercise/'+exerciseId).
 				  success(function(data, status, headers, config) {
 				    // this callback will be called asynchronously
 				    // when the response is available
-				    return data;
+				    callback(data);
 				  }).
 				  error(function(data, status, headers, config) {
 				    // called asynchronously if an error occurs
@@ -21,11 +21,11 @@ angular.module('trainme').service('restClientService', ['$http', '$location', 'c
 		};
 		
 		// REST GET: /api/today/:user
-		this.GetTodayExercisesForUser = function GetTodayExercisesForUser(user)
+		this.GetTodayExercisesForUser = function GetTodayExercisesForUser(user, callback)
 		{
 			$http.jsonp(restUrl+'/api/today/'+user).
 				  success(function(data, status, headers, config) {
-				    return data;
+				    callback(data);
 				  });
 		};
 	

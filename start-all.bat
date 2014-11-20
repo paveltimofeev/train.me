@@ -4,12 +4,12 @@ rem start elastic
 
 rem start backend
 cd backend/nodesrv
-start start-backend-server.sh
+start  /MIN start-backend-server.sh
 cd ../..
 
 rem start frontend
 cd frontend
-start start.sh
+start  /MIN start.sh
 cd ..
 
 rem open website

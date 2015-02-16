@@ -19,8 +19,8 @@ Try to use Angular/Node/Elasticsearch
 
 ####Hard points
 - Идентичная работа на мобильных устройствах и в браузере
-- Автоматическая регистрация, авторизация и аутентификация пользователя без ввода логина/пароля (run-and-use)
-- Возможность шаринга аккаунта между PC <-> Mobile(s)
+- Автоматическая регистрация, авторизация и аутентификация пользователя без ввода логина/пароля по принципу run-and-use
+- Возможность шаринга аккаунта между PC <-> Mobile(s) без регистрации и смс
 
 
 ####Demo & links
@@ -43,7 +43,5 @@ Try to use Angular/Node/Elasticsearch
     - [ ] Implement public API
     - [ ] Add swagger ui
     - [ ] Storing/Retrieving data to/from backend DB
-    - [ ] ...
-  - [ ] Database 
+  - [ ] Starage
     - [ ] Define data structure
-    - [ ] ...

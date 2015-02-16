@@ -43,5 +43,5 @@ Try to use Angular/Node/Elasticsearch
     - [ ] Implement public API
     - [ ] Add swagger ui
     - [ ] Storing/Retrieving data to/from backend DB
-  - [ ] Starage
+  - [ ] Storage
     - [ ] Define data structure
